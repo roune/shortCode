@@ -17,14 +17,7 @@ function copyToClipboard(idbutton, idtext) {
         var range = document.createRange();
         range.selectNode(textToCopy);
         window.getSelection().addRange(range);
-        try {
-            // Now that we've selected the anchor text, execute the copy command  
-            var successful = document.execCommand('copy');
-            var msg = successful ? 'successful' : 'unsuccessful';
-            console.log('Copy email command was ' + msg);
-        } catch (err) {
-            console.log('Oops, unable to copy');
-        }
+        document.execCommand('copy');
         window.getSelection().removeAllRanges();
     });
 }
